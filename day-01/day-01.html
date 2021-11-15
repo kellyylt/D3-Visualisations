@@ -7,12 +7,21 @@
 
         d3.select("#chart")
           .selectAll("circle")
-          .data([100])
+          .data(array)
           .enter()
           .append("circle")
           .attr("r", 10)
           .attr("cy", 100)
           .attr("cx", d => d)
+
+        setTimeout(function() {
+            d3.select("#chart").selectAll("circle")
+              .data([50, 75, 125, 225, 325, 425, 450])
+              .transition().duration(1000)
+                .attr("r", 5)
+                .attr("cx", d => d)
+                .style("fill", "red")
+        }, 2000)
 
         
 
